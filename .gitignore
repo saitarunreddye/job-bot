@@ -63,6 +63,10 @@ artifacts/
 *.docx
 *.pdf
 
+# Cache files (should be ignored but were previously tracked)
+__pycache__/
+*.pyc
+
 # OS
 .DS_Store
 Thumbs.db

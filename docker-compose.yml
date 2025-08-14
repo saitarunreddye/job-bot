@@ -1,0 +1,153 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:16
+    container_name: jobbot-postgres
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-jobbot}
+      POSTGRES_USER: ${POSTGRES_USER:-jobbot}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-jobbot_password}
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./db/schema.sql:/docker-entrypoint-initdb.d/schema.sql
+    networks:
+      - jobbot
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-jobbot} -d ${POSTGRES_DB:-jobbot}"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Redis for RQ Queue
+  redis:
+    image: redis:7-alpine
+    container_name: jobbot-redis
+    ports:
+      - "${REDIS_PORT:-6379}:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - jobbot
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # FastAPI Application
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: jobbot-api
+    environment:
+      - DATABASE_URL=postgresql://${POSTGRES_USER:-jobbot}:${POSTGRES_PASSWORD:-jobbot_password}@postgres:5432/${POSTGRES_DB:-jobbot}
+      - REDIS_URL=redis://redis:6379/0
+      - ENVIRONMENT=${ENVIRONMENT:-development}
+      - ARTIFACT_DIR=/app/artifacts
+      - GMAIL_CREDENTIALS_FILE=/app/config/configgmail_credentials.json
+    ports:
+      - "${API_PORT:-8000}:8000"
+    volumes:
+      - .:/app
+      - ./artifacts:/app/artifacts
+      - ./config:/app/config
+    working_dir: /app
+    command: uvicorn apps.api.main:app --host 0.0.0.0 --port 8000 --reload
+    networks:
+      - jobbot
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # RQ Worker for Background Jobs
+  worker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: jobbot-worker
+    environment:
+      - DATABASE_URL=postgresql://${POSTGRES_USER:-jobbot}:${POSTGRES_PASSWORD:-jobbot_password}@postgres:5432/${POSTGRES_DB:-jobbot}
+      - REDIS_URL=redis://redis:6379/0
+      - ENVIRONMENT=${ENVIRONMENT:-development}
+      - ARTIFACT_DIR=/app/artifacts
+      - GMAIL_CREDENTIALS_FILE=/app/config/configgmail_credentials.json
+    volumes:
+      - .:/app
+      - ./artifacts:/app/artifacts
+      - ./config:/app/config
+    working_dir: /app
+    command: rq worker -u redis://redis:6379/0 jobs
+    networks:
+      - jobbot
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+    deploy:
+      replicas: 2  # Run 2 worker instances for parallel processing
+
+  # RQ Dashboard (Optional)
+  rq-dashboard:
+    image: eoranged/rq-dashboard
+    container_name: jobbot-rq-dashboard
+    environment:
+      - RQ_DASHBOARD_REDIS_URL=redis://redis:6379/0
+    ports:
+      - "${RQ_DASHBOARD_PORT:-9181}:9181"
+    networks:
+      - jobbot
+    depends_on:
+      - redis
+    restart: unless-stopped
+
+  # Dashboard Service (Optional - if you want to run the mini dashboard)
+  dashboard:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: jobbot-dashboard
+    environment:
+      - DATABASE_URL=postgresql://${POSTGRES_USER:-jobbot}:${POSTGRES_PASSWORD:-jobbot_password}@postgres:5432/${POSTGRES_DB:-jobbot}
+      - REDIS_URL=redis://redis:6379/0
+      - ENVIRONMENT=${ENVIRONMENT:-development}
+    ports:
+      - "${DASHBOARD_PORT:-8080}:8080"
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: python -m uvicorn apps.dash.minidash:app --host 0.0.0.0 --port 8080 --reload
+    networks:
+      - jobbot
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+
+networks:
+  jobbot:
+    driver: bridge
+
+volumes:
+  postgres_data:
+    driver: local
+  redis_data:
+    driver: local

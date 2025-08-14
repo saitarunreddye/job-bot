@@ -1,0 +1,116 @@
+{
+  "job": {
+    "id": "44efbf8c-e037-4783-b120-9b258532d18c",
+    "title": "Senior Python Developer",
+    "company": "TechCorp Inc",
+    "url": "https://techcorp.com/jobs/senior-python-dev",
+    "location": "San Francisco, CA",
+    "description": "\n            We are seeking a Senior Python Developer to join our growing engineering team. \n            You will be responsible for developing scalable web applications using modern Python frameworks.\n            \n            Key Responsibilities:\n            - Design and implement RESTful APIs using FastAPI or Django\n            - Work with PostgreSQL databases and optimize query performance\n            - Collaborate with frontend teams using React and JavaScript\n            - Deploy applications using Docker and Kubernetes on AWS\n            - Write comprehensive tests and maintain high code quality\n            ",
+    "requirements": "\n            Required Skills:\n            - 5+ years of Python development experience\n            - Strong experience with Django or FastAPI frameworks\n            - Proficiency with PostgreSQL and SQL optimization\n            - Experience with Docker containerization\n            - Knowledge of AWS services (EC2, RDS, S3)\n            - Familiarity with React and JavaScript for API integration\n            - Experience with Git version control and CI/CD pipelines\n            \n            Preferred Skills:\n            - Experience with Kubernetes orchestration\n            - Knowledge of Redis for caching\n            - Testing frameworks like pytest\n            - Agile development methodologies\n            ",
+    "source": "seed_script",
+    "status": "active",
+    "score": null
+  },
+  "skills": {
+    "extracted": [
+      "agile",
+      "api",
+      "aws",
+      "ci/cd",
+      "django",
+      "docker",
+      "fastapi",
+      "git",
+      "javascript",
+      "kubernetes",
+      "postgresql",
+      "pytest",
+      "python",
+      "react",
+      "redis",
+      "sql",
+      "testing"
+    ],
+    "matched": [
+      "agile",
+      "api",
+      "aws",
+      "ci/cd",
+      "docker",
+      "git",
+      "javascript",
+      "postgresql",
+      "python",
+      "react",
+      "sql",
+      "testing"
+    ],
+    "match_reasons": null
+  },
+  "tailoring": {
+    "timestamp": "2025-08-09T20:48:48.627008",
+    "version": "1.0",
+    "assets_created": [
+      "resume.docx",
+      "resume.txt",
+      "cover_email.txt",
+      "linkedin_msg.txt",
+      "meta.json"
+    ]
+  },
+  "guidelines": {
+    "no_fabrication": true,
+    "skills_based": true,
+    "ats_safe": true,
+    "truthful_claims_only": true
+  },
+  "truth_verification": {
+    "timestamp": "2025-08-09T20:48:48.654602",
+    "results": {
+      "resume_txt": {
+        "content_type": "resume_txt",
+        "verified": true,
+        "issues": [],
+        "warnings": [],
+        "technologies_mentioned": [
+          "Python",
+          "AWS",
+          "JavaScript",
+          "SQL",
+          "Docker",
+          "Git",
+          "CI/CD"
+        ],
+        "skills_mentioned": [],
+        "experience_claims": [],
+        "achievement_claims": []
+      },
+      "cover_email": {
+        "content_type": "cover_email",
+        "verified": true,
+        "issues": [],
+        "warnings": [],
+        "technologies_mentioned": [
+          "Python",
+          "AWS"
+        ],
+        "skills_mentioned": [],
+        "experience_claims": [],
+        "achievement_claims": []
+      },
+      "linkedin_msg": {
+        "content_type": "linkedin_msg",
+        "verified": true,
+        "issues": [],
+        "warnings": [],
+        "technologies_mentioned": [
+          "Python"
+        ],
+        "skills_mentioned": [],
+        "experience_claims": [],
+        "achievement_claims": []
+      }
+    },
+    "verifier_version": "1.0"
+  }
+}

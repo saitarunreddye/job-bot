@@ -1,0 +1,233 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "created": "2025-01-08",
+    "description": "Achievement bank for truth verification in application materials",
+    "guidelines": [
+      "All claims in resumes/cover letters must be verifiable from this bank",
+      "No exaggeration of skills, experience, or accomplishments",
+      "Years of experience must match actual chronological timeline",
+      "Technologies must be ones actually used in professional capacity",
+      "Quantified achievements must be factual and verifiable"
+    ]
+  },
+  "experience": {
+    "total_years": 5,
+    "professional_start_date": "2019-01-01",
+    "current_role": {
+      "title": "Software Engineer",
+      "company": "Tech Company",
+      "start_date": "2022-03-01",
+      "duration_years": 2.8,
+      "is_current": true
+    },
+    "previous_roles": [
+      {
+        "title": "Junior Developer", 
+        "company": "Startup Inc",
+        "start_date": "2019-01-01",
+        "end_date": "2022-02-28",
+        "duration_years": 3.2
+      }
+    ]
+  },
+  "technical_skills": {
+    "programming_languages": [
+      {
+        "name": "Python",
+        "years_experience": 5,
+        "proficiency": "advanced",
+        "professional_use": true,
+        "frameworks": ["Django", "FastAPI", "Flask"]
+      },
+      {
+        "name": "JavaScript",
+        "years_experience": 4,
+        "proficiency": "intermediate",
+        "professional_use": true,
+        "frameworks": ["React", "Node.js"]
+      },
+      {
+        "name": "SQL",
+        "years_experience": 5,
+        "proficiency": "advanced",
+        "professional_use": true,
+        "databases": ["PostgreSQL", "MySQL", "SQLite"]
+      },
+      {
+        "name": "HTML/CSS",
+        "years_experience": 4,
+        "proficiency": "intermediate",
+        "professional_use": true
+      }
+    ],
+    "technologies": [
+      {
+        "name": "Docker",
+        "years_experience": 3,
+        "proficiency": "intermediate",
+        "professional_use": true
+      },
+      {
+        "name": "Git",
+        "years_experience": 5,
+        "proficiency": "advanced",
+        "professional_use": true
+      },
+      {
+        "name": "AWS",
+        "years_experience": 2,
+        "proficiency": "beginner",
+        "professional_use": true,
+        "services": ["EC2", "S3", "RDS"]
+      },
+      {
+        "name": "Linux",
+        "years_experience": 4,
+        "proficiency": "intermediate",
+        "professional_use": true
+      },
+      {
+        "name": "CI/CD",
+        "years_experience": 2,
+        "proficiency": "beginner",
+        "professional_use": true,
+        "tools": ["GitHub Actions", "Jenkins"]
+      }
+    ]
+  },
+  "education": [
+    {
+      "degree": "Bachelor of Science in Computer Science",
+      "institution": "State University",
+      "graduation_year": 2018,
+      "gpa": 3.5,
+      "relevant_coursework": [
+        "Data Structures and Algorithms",
+        "Database Systems", 
+        "Software Engineering",
+        "Web Development"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "E-commerce API",
+      "description": "RESTful API for online marketplace",
+      "technologies": ["Python", "Django", "PostgreSQL", "Docker"],
+      "duration_months": 6,
+      "team_size": 3,
+      "achievements": [
+        "Handled 1000+ concurrent users",
+        "Reduced API response time by 40%",
+        "Implemented secure payment processing"
+      ]
+    },
+    {
+      "name": "Task Management Dashboard",
+      "description": "React-based project management tool",
+      "technologies": ["React", "Node.js", "MongoDB"],
+      "duration_months": 4,
+      "team_size": 2,
+      "achievements": [
+        "Built responsive UI for mobile and desktop",
+        "Integrated real-time notifications",
+        "Supported team collaboration features"
+      ]
+    }
+  ],
+  "achievements": [
+    {
+      "description": "Improved application performance by 40%",
+      "context": "Database query optimization project",
+      "quantifiable": true,
+      "year": 2023,
+      "verification": "Performance monitoring tools showed 40% reduction in average response time"
+    },
+    {
+      "description": "Led development team of 3 developers",
+      "context": "E-commerce API project",
+      "quantifiable": true,
+      "year": 2023,
+      "verification": "Project assignment documents and team roster"
+    },
+    {
+      "description": "Mentored 2 junior developers",
+      "context": "Knowledge sharing and code review",
+      "quantifiable": true,
+      "year": 2024,
+      "verification": "HR records and mentorship program documentation"
+    },
+    {
+      "description": "Deployed applications using CI/CD pipelines",
+      "context": "DevOps practices implementation",
+      "quantifiable": false,
+      "year": 2023,
+      "verification": "GitHub Actions workflow files and deployment logs"
+    }
+  ],
+  "certifications": [
+    {
+      "name": "AWS Cloud Practitioner",
+      "issuing_organization": "Amazon Web Services",
+      "issue_date": "2023-06-15",
+      "expiry_date": "2026-06-15",
+      "verification_id": "AWS-CP-2023-123456"
+    }
+  ],
+  "soft_skills": [
+    {
+      "skill": "Team Collaboration",
+      "evidence": "Worked in cross-functional teams on multiple projects",
+      "years_practiced": 5
+    },
+    {
+      "skill": "Problem Solving", 
+      "evidence": "Debugged complex production issues and optimized system performance",
+      "years_practiced": 5
+    },
+    {
+      "skill": "Communication",
+      "evidence": "Presented technical solutions to stakeholders and mentored junior developers",
+      "years_practiced": 4
+    },
+    {
+      "skill": "Agile Methodology",
+      "evidence": "Participated in daily standups, sprint planning, and retrospectives",
+      "years_practiced": 3
+    }
+  ],
+  "prohibited_claims": {
+    "experience_inflation": [
+      "10+ years of experience",
+      "Senior architect",
+      "Lead engineer",
+      "Expert level in [technology with <3 years experience]"
+    ],
+    "false_technologies": [
+      "Kubernetes (not professionally used)",
+      "Machine Learning (no professional experience)",
+      "Microservices architecture (limited exposure)",
+      "Blockchain development"
+    ],
+    "inflated_achievements": [
+      "Increased performance by 90%",
+      "Managed team of 10+ developers", 
+      "Built enterprise-scale applications serving millions",
+      "Architected entire system from scratch"
+    ],
+    "false_education": [
+      "Master's degree (only have Bachelor's)",
+      "Certifications not actually obtained",
+      "GPA higher than actual"
+    ]
+  },
+  "verification_rules": {
+    "max_experience_years": 5,
+    "max_team_size_led": 3,
+    "allowed_proficiency_levels": ["beginner", "intermediate", "advanced"],
+    "require_evidence_for_claims": true,
+    "quantified_achievements_must_be_verifiable": true,
+    "technology_experience_cannot_exceed_total_experience": true
+  }
+}

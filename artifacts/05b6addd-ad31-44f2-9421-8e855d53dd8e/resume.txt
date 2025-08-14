@@ -1,0 +1,33 @@
+RESUME
+======
+
+Tailored for: Senior Python Developer at TechCorp Inc
+
+SUMMARY
+=======
+Software developer with experience in modern web technologies and database systems.
+Strong background in full-stack development with focus on scalable applications.
+
+
+TECHNICAL SKILLS
+================
+agile, api, aws, ci/cd, docker, git, javascript, postgresql, python, react, sql, testing
+
+Additional Technologies: python, javascript, typescript, react, nodejs, sql, postgresql, docker, aws, git, linux, html, css, rest, api, json, testing, ci/cd, agile
+
+
+EXPERIENCE
+==========
+Software Developer
+- Developed applications using Python for backend services
+- Built interactive web applications with modern JavaScript frameworks
+- Designed and optimized database schemas and queries
+- Deployed applications using containerization and cloud platforms
+- Collaborated using version control and code review processes
+
+EDUCATION
+=========
+Bachelor's Degree in Computer Science or related field
+
+Note: This resume emphasizes relevant skills and experience for the Senior Python Developer position.
+All claims are based on actual experience and qualifications.

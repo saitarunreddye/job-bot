@@ -1,0 +1,45 @@
+# Job Bot Dependencies
+# Core framework and API
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+pydantic==2.5.0
+pydantic-settings==2.1.0
+
+# Database and storage
+sqlalchemy==2.0.23
+psycopg2-binary==2.9.9
+tenacity==8.2.3
+
+# Queue and background jobs
+rq==1.15.1
+redis==5.0.1
+
+# HTTP client and web scraping
+httpx==0.25.2
+playwright==1.40.0
+beautifulsoup4==4.12.2
+lxml==4.9.3
+
+# Email and authentication
+google-auth==2.25.2
+google-auth-oauthlib==1.2.0
+google-api-python-client==2.111.0
+
+# Document generation
+python-docx==1.1.0
+jinja2==3.1.2
+
+# Testing
+pytest==7.4.3
+pytest-asyncio==0.21.1
+
+# Development tools
+python-multipart==0.0.6
+watchfiles==0.21.0
+
+# Data processing
+python-dateutil==2.8.2
+pytz==2023.3
+
+# Logging and monitoring
+structlog==23.2.0
